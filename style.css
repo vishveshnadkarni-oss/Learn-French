@@ -63,3 +63,45 @@ button:hover {
     font-weight: bold;
     margin-top: 15px;
 }
+.match-grid {
+
+    display: grid;
+
+    grid-template-columns:
+    1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 20px;
+}
+
+.match-item {
+
+    padding: 12px;
+
+    background: #2a2a2a;
+
+    border-radius: 8px;
+
+    cursor: pointer;
+
+    text-align: center;
+}
+
+.match-item:hover {
+
+    opacity: 0.85;
+}
+
+.match-selected {
+
+    outline:
+    3px solid #2563eb;
+}
+
+.match-correct {
+
+    opacity: 0.4;
+
+    pointer-events: none;
+}
