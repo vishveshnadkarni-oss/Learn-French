@@ -1,0 +1,65 @@
+body {
+    margin: 0;
+    padding: 20px;
+    background: #121212;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    max-width: 700px;
+    margin: auto;
+}
+
+h1 {
+    text-align: center;
+}
+
+.card {
+    background: #1e1e1e;
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(255,255,255,0.05);
+}
+
+select,
+input,
+button {
+    width: 100%;
+    padding: 12px;
+    margin-top: 10px;
+    box-sizing: border-box;
+    border-radius: 8px;
+    border: none;
+}
+
+input,
+select {
+    background: #2a2a2a;
+    color: white;
+}
+
+button {
+    background: #2563eb;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+#englishWord {
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    margin: 20px 0;
+}
+
+#result {
+    text-align: center;
+    font-weight: bold;
+    margin-top: 15px;
+}
