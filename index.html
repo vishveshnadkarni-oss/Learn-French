@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Learn French</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🇫🇷 Learn French</h1>
+
+<div class="card">
+<h2>🔥 Streak: <span id="streak">0</span></h2>
+<h2>⭐ XP: <span id="xp">0</span></h2>
+</div>
+
+<div class="card">
+<h2>Select Category</h2>
+
+<select id="category">
+<option value="Basics">Basics</option>
+<option value="Greetings">Greetings</option>
+<option value="Food">Food</option>
+<option value="Travel">Travel</option>
+<option value="Business">Business</option>
+<option value="Technology">Technology</option>
+</select>
+
+<button onclick="loadWords()">Load Words</button>
+</div>
+
+<div class="card">
+<h2>Match English to French</h2>
+
+<p id="englishWord">Press Load Words</p>
+
+<input type="text" id="answer" placeholder="French word">
+
+<button onclick="checkAnswer()">Submit</button>
+
+<p id="result"></p>
+</div>
+
+</div>
+
+<script src="app.js"></script>
+
+</body>
+</html>
