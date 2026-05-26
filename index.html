@@ -16,38 +16,55 @@
 <div class="card">
 <h2>🔥 Streak: <span id="streak">0</span></h2>
 <h2>⭐ XP: <span id="xp">0</span></h2>
+<h2>📚 Vocabulary: <span id="wordCount">0</span></h2>
+<h2>🎯 Daily Goal: <span id="goalProgress">0</span>/20</h2>
 </div>
 
 <div class="card">
 <h2>Select Category</h2>
 
 <select id="category">
-    <option>Basics</option>
-    <option>Greetings</option>
-    <option>Food</option>
-    <option>Travel</option>
-    <option>Family</option>
-    <option>Business</option>
-    <option>Technology</option>
-    <option>Verbs</option>
-    <option>Adjectives</option>
-    <option>Numbers</option>
-    <option>Colors</option>
+<option>Basics</option>
+<option>Greetings</option>
+<option>Food</option>
+<option>Travel</option>
+<option>Family</option>
+<option>Business</option>
+<option>Technology</option>
+<option>Verbs</option>
+<option>Adjectives</option>
+<option>Numbers</option>
+<option>Colors</option>
 </select>
 
 <button onclick="loadWords()">Load Words</button>
 </div>
 
 <div class="card">
-<h2>Match English to French</h2>
+<h2>Type The French Word</h2>
 
 <p id="englishWord">Press Load Words</p>
 
-<input type="text" id="answer" placeholder="French word">
+<input
+type="text"
+id="answer"
+placeholder="French word">
 
-<button onclick="checkAnswer()">Submit</button>
+<button onclick="checkAnswer()">
+Submit
+</button>
 
 <p id="result"></p>
+</div>
+
+<div class="card">
+<h2>Multiple Choice Quiz</h2>
+
+<button onclick="loadQuizQuestion()">
+Start Quiz
+</button>
+
+<div id="quizContainer"></div>
 </div>
 
 </div>
