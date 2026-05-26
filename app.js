@@ -1,6 +1,20 @@
 let words = [];
 let currentWord = null;
 
+const categoryFiles = {
+    Basics: "data/basics.json",
+    Greetings: "data/greetings.json",
+    Food: "data/food.json",
+    Travel: "data/travel.json",
+    Family: "data/family.json",
+    Business: "data/business.json",
+    Technology: "data/technology.json",
+    Verbs: "data/verbs.json",
+    Adjectives: "data/adjectives.json",
+    Numbers: "data/numbers.json",
+    Colors: "data/colors.json"
+};
+
 let xp = Number(localStorage.getItem("xp")) || 0;
 let streak = Number(localStorage.getItem("streak")) || 0;
 
@@ -12,28 +26,36 @@ async function loadWords() {
     const category =
         document.getElementById("category").value;
 
-    const response =
-        await fetch("words.json");
+    const file =
+        categoryFiles[category];
 
-    words = await response.json();
+    try {
 
-    const filtered =
-        words.filter(
-            w => w.category === category
-        );
+        const response =
+            await fetch(file);
 
-    currentWord =
-        filtered[
-            Math.floor(
-                Math.random() * filtered.length
-            )
-        ];
+        words =
+            await response.json();
 
-    document.getElementById("englishWord")
-        .innerText = currentWord.english;
+        currentWord =
+            words[Math.floor(
+                Math.random() * words.length
+            )];
 
-    document.getElementById("answer").value = "";
-    document.getElementById("result").innerText = "";
+        document.getElementById("englishWord")
+            .innerText = currentWord.english;
+
+        document.getElementById("answer").value = "";
+        document.getElementById("result").innerText = "";
+
+    } catch (error) {
+
+        document.getElementById("englishWord")
+            .innerText =
+            "Category file not found";
+
+        console.error(error);
+    }
 }
 
 function checkAnswer() {
@@ -54,13 +76,13 @@ function checkAnswer() {
 
         xp += 10;
 
-        document.getElementById("result")
-            .innerText = "✅ Correct";
-
         localStorage.setItem("xp", xp);
 
         document.getElementById("xp")
             .innerText = xp;
+
+        document.getElementById("result")
+            .innerText = "✅ Correct";
 
         updateDailyStreak();
 
