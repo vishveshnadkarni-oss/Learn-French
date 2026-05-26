@@ -395,3 +395,202 @@ async function updateWordCount() {
 }
 
 updateWordCount();
+let selectedEnglish = null;
+let selectedFrench = null;
+let currentPairs = [];
+
+function startMatchGame() {
+
+    if (!words.length) {
+
+        loadWords();
+
+        return;
+    }
+
+    const shuffled =
+        [...words]
+        .sort(() => Math.random() - 0.5)
+        .slice(0, 5);
+
+    currentPairs = shuffled;
+
+    const english =
+        [...shuffled]
+        .sort(() => Math.random() - 0.5);
+
+    const french =
+        [...shuffled]
+        .sort(() => Math.random() - 0.5);
+
+    let html =
+        '<div class="match-grid">';
+
+    english.forEach(
+        item => {
+
+        html += `
+        <div
+        class="match-item"
+        id="eng-${item.english}"
+        onclick="selectEnglish(
+        '${item.english.replace(/'/g,"\\'")}'
+        )">
+
+        ${item.english}
+
+        </div>
+        `;
+    });
+
+    french.forEach(
+        item => {
+
+        html += `
+        <div
+        class="match-item"
+        id="fr-${item.french}"
+        onclick="selectFrench(
+        '${item.french.replace(/'/g,"\\'")}'
+        )">
+
+        ${item.french}
+
+        </div>
+        `;
+    });
+
+    html += '</div>';
+
+    document
+    .getElementById(
+        "matchGame"
+    )
+    .innerHTML =
+    html;
+
+    selectedEnglish = null;
+    selectedFrench = null;
+}
+
+function selectEnglish(word) {
+
+    document
+    .querySelectorAll(
+        '[id^="eng-"]'
+    )
+    .forEach(
+        el =>
+        el.classList.remove(
+            'match-selected'
+        )
+    );
+
+    selectedEnglish = word;
+
+    document
+    .getElementById(
+        `eng-${word}`
+    )
+    .classList.add(
+        'match-selected'
+    );
+
+    checkMatch();
+}
+
+function selectFrench(word) {
+
+    document
+    .querySelectorAll(
+        '[id^="fr-"]'
+    )
+    .forEach(
+        el =>
+        el.classList.remove(
+            'match-selected'
+        )
+    );
+
+    selectedFrench = word;
+
+    document
+    .getElementById(
+        `fr-${word}`
+    )
+    .classList.add(
+        'match-selected'
+    );
+
+    checkMatch();
+}
+
+function checkMatch() {
+
+    if (
+        !selectedEnglish ||
+        !selectedFrench
+    ) {
+        return;
+    }
+
+    const pair =
+        currentPairs.find(
+            p =>
+            p.english ===
+            selectedEnglish
+        );
+
+    if (
+        pair &&
+        pair.french ===
+        selectedFrench
+    ) {
+
+        addCorrectAnswerReward();
+
+        document
+        .getElementById(
+            `eng-${selectedEnglish}`
+        )
+        .classList.add(
+            'match-correct'
+        );
+
+        document
+        .getElementById(
+            `fr-${selectedFrench}`
+        )
+        .classList.add(
+            'match-correct'
+        );
+
+    } else {
+
+        const wrongPair =
+            currentPairs.find(
+                p =>
+                p.english ===
+                selectedEnglish
+            );
+
+        if (
+            wrongPair
+        ) {
+
+            difficultWords.push(
+                wrongPair
+            );
+
+            localStorage.setItem(
+                "difficultWords",
+                JSON.stringify(
+                    difficultWords
+                )
+            );
+        }
+    }
+
+    selectedEnglish = null;
+    selectedFrench = null;
+}
