@@ -1,0 +1,37 @@
+[
+  {"category":"Basics","english":"House","french":"Maison"},
+  {"category":"Basics","english":"Water","french":"Eau"},
+  {"category":"Basics","english":"Book","french":"Livre"},
+  {"category":"Basics","english":"Car","french":"Voiture"},
+  {"category":"Basics","english":"School","french":"École"},
+
+  {"category":"Greetings","english":"Hello","french":"Bonjour"},
+  {"category":"Greetings","english":"Goodbye","french":"Au revoir"},
+  {"category":"Greetings","english":"Thank you","french":"Merci"},
+  {"category":"Greetings","english":"Please","french":"S'il vous plaît"},
+  {"category":"Greetings","english":"Good morning","french":"Bonjour"},
+
+  {"category":"Food","english":"Apple","french":"Pomme"},
+  {"category":"Food","english":"Bread","french":"Pain"},
+  {"category":"Food","english":"Milk","french":"Lait"},
+  {"category":"Food","english":"Cheese","french":"Fromage"},
+  {"category":"Food","english":"Coffee","french":"Café"},
+
+  {"category":"Travel","english":"Airport","french":"Aéroport"},
+  {"category":"Travel","english":"Ticket","french":"Billet"},
+  {"category":"Travel","english":"Train","french":"Train"},
+  {"category":"Travel","english":"Hotel","french":"Hôtel"},
+  {"category":"Travel","english":"Passport","french":"Passeport"},
+
+  {"category":"Business","english":"Company","french":"Entreprise"},
+  {"category":"Business","english":"Customer","french":"Client"},
+  {"category":"Business","english":"Meeting","french":"Réunion"},
+  {"category":"Business","english":"Invoice","french":"Facture"},
+  {"category":"Business","english":"Sales","french":"Ventes"},
+
+  {"category":"Technology","english":"Computer","french":"Ordinateur"},
+  {"category":"Technology","english":"Software","french":"Logiciel"},
+  {"category":"Technology","english":"Internet","french":"Internet"},
+  {"category":"Technology","english":"Website","french":"Site Web"},
+  {"category":"Technology","english":"Password","french":"Mot de passe"}
+]
